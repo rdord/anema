@@ -23,6 +23,7 @@ function setup() {
   nameHTML.parent(nameDiv);
   nameHTML.addClass('main');
   // style .main
+  $('.main').lettering();
 
   var stone = randomJSONValue(stonesData, 'decorative stones');
   println(stone);
@@ -40,3 +41,4 @@ function setup() {
   // fill every letter of the 'name' with an animal bg img
 
 }
+
