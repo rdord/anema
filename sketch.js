@@ -27,18 +27,40 @@ function setup() {
 
   var stone = randomJSONValue(stonesData, 'decorative stones');
   println(stone);
+
+  var chars = document.querySelectorAll('.main > span');
+  var main = document.querySelectorAll('.main');
   // get stone pattern img from an API
+
   // apply as bg img to the .back
+  // chars.forEach((char) => char.style.backgroundImage = `url(images/${stone}.JPG)`);
 
-  var animals = [];
+  // svg fallback polyfill
+  main[0].backgroundClipPolyfill({
+    'patternID' : 'mypattern',
+    'patternURL' : '../images/granite.JPG',
+    'class' : 'main'
+  }); 
+  // for(var i=0; i<chars.length; i++) {
+  //   chars[i].backgroundClipPolyfill({
+  //     'patternID' : 'mypattern',
+  //     'patternURL' : '../images/granite.JPG',
+  //     'class' : 'char' + i+1
+  //   });    
+  // }
 
-  for (var i=0; i<nameLength; i++) {
-    var animal = randomJSONValue(animalData, 'animals');
-    animals.push(animal);   
-    println(animal); 
-    // get animal img or silluete from an API
-  }
-  // fill every letter of the 'name' with an animal bg img
+
+
+
+  // var animals = [];
+
+  // for (var i=0; i<nameLength; i++) {
+  //   var animal = randomJSONValue(animalData, 'animals');
+  //   animals.push(animal);   
+  //   println(animal); 
+  //   // get animal img or silluete from an API
+  // }
+  // // fill every letter of the 'name' with an animal bg img
 
 }
 

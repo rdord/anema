@@ -10,15 +10,11 @@
   <script type="text/javascript" src="libraries/background-clip-text-polyfill.js"></script>
   <script language="javascript" type="text/javascript" src="sketch.js"></script>
   <!-- this line removes any default padding and style. you might only need one of these values set. -->
-  <link href='https://fonts.googleapis.com/css?family=Merriweather:400,900,300|Poiret+One|Playfair+Display:400,900|Inconsolata:400,700|Anton|Archivo+Narrow:400,700|Josefin+Sans:400,700,100|Amatic+SC:400,700|Exo:400,900,100|Abril+Fatface|Source+Code+Pro:400,900,200' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
   <style> 
-  	body {padding: 0; margin: 0;} 
+  	body {padding: 0; margin: 0; overflow-x: hidden;} 
   	.back {
   		background-color: indianred;
-      background-image: url(images/granite.JPG);
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
     	display: inline-block;
     	position: relative;
   	}
@@ -34,30 +30,19 @@
   		box-shadow: 1px 0 2px black;
   	}
   	.main {
-/*		font-family: 'Amatic SC', cursive;
-  		font-family: 'Merriweather', serif;
-		font-family: 'Poiret One', cursive;*/
-		font-family: 'Playfair Display', serif;
-/*		font-family: 'Inconsolata', sans-serif;
-		font-family: 'Anton', sans-serif;
-		font-family: 'Archivo Narrow', sans-serif;
-		font-family: 'Josefin Sans', sans-serif;*/
-/*		font-family: 'Exo', sans-serif;
-		font-family: 'Abril Fatface', cursive;
-		font-family: 'Source Code Pro', sans-serif;*/
-		font-size: 150px;
-		display: inline-block;
-	    margin: 0;
-	    padding: 10px 50px;
-      
-      
+  		font-family: 'Playfair Display', serif;
+  		font-size: 150px;
+  		display: inline-block;
+      margin: 0;
+      padding: 10px 50px;
   	}
 
     .main > span {
       -webkit-text-fill-color: transparent;
       -webkit-background-clip: text;
+      background-image: url(images/granite.JPG);
     }
-
+/*
     .char2 {
       background-image: url(images/animal1.jpg);
     }
@@ -84,9 +69,18 @@
 
     .char1 {
       background-image: url(images/animal6.jpg);
+    }*/
+
+    svg {
+      position: relative;
+      top: 43px;
+      left: 57px;
+      width: 3000px;
     }
 
-
+    text.main  {
+      font-size: 107px;
+    }
 
   </style>
 </head>
