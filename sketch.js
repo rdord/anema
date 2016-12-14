@@ -1,4 +1,8 @@
-var nameData, animalData, stonesData;
+var nameData, stonesData, stoneImg;
+
+function fetchImg(url) {
+  // body...
+}
 
 function randomJSONValue(data, val) {
   var rand = floor(random(0, data[val].length - 1));
@@ -7,9 +11,13 @@ function randomJSONValue(data, val) {
 }
 
 function preload() {
+  var url = 'https://www.googleapis.com/customsearch/v1?key=AIzaSyDk8gwNe0f5Ue7uls-ir8U1Mj7UAjJvMeo&cx=011671385966262302368:8judhukhxa0&q=granite+texture&searchType=image&alt=json&num=1';
+
   nameData = loadJSON('data.json'); 
   animalData = loadJSON('animals.json'); 
-  stonesData = loadJSON('decorative-stones.json');  
+  stonesData = loadJSON('decorative-stones.json');
+  stoneImg = loadJSON(url);
+  
 }
 
 function setup() {
@@ -27,40 +35,24 @@ function setup() {
 
   var stone = randomJSONValue(stonesData, 'decorative stones');
   println(stone);
+  console.log(stoneImg.items[0].link);
 
   var chars = document.querySelectorAll('.main > span');
   var main = document.querySelectorAll('.main');
-  // get stone pattern img from an API
 
-  // apply as bg img to the .back
   // chars.forEach((char) => char.style.backgroundImage = `url(images/${stone}.JPG)`);
+  for(var i=0; i<chars.length; i++){
+    // add img url from the api
+    chars[i].style.backgroundImage = 'url(../images/granite.JPG)';
+  }
 
   // svg fallback polyfill
   main[0].backgroundClipPolyfill({
     'patternID' : 'mypattern',
+    // add img url from the api
     'patternURL' : '../images/granite.JPG',
     'class' : 'main'
   }); 
-  // for(var i=0; i<chars.length; i++) {
-  //   chars[i].backgroundClipPolyfill({
-  //     'patternID' : 'mypattern',
-  //     'patternURL' : '../images/granite.JPG',
-  //     'class' : 'char' + i+1
-  //   });    
-  // }
-
-
-
-
-  // var animals = [];
-
-  // for (var i=0; i<nameLength; i++) {
-  //   var animal = randomJSONValue(animalData, 'animals');
-  //   animals.push(animal);   
-  //   println(animal); 
-  //   // get animal img or silluete from an API
-  // }
-  // // fill every letter of the 'name' with an animal bg img
 
 }
 
